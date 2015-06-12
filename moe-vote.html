@@ -5,66 +5,7 @@
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../moe-style/moe-style.html">
 <dom-module id="moe-vote">
-    <style>
-    :host {
-        display: inline-block;
-        box-sizing: border-box;
-        color: var(--font-color);
-        outline: 1px solid gray;
-    }
-    
-    :host([reveal]) {}
-    #heroImage {
-        height: 100px;
-        width: 100%;
-    }
-    #vote {}
-    
-    #voteToolbar {
-        font-weight: bold;
-    }
-    
-    #voteTitle {}
-    
-    #voteList {}
-    
-    .chip {
-        font-size: 13px;
-        cursor: pointer;
-    }
-    .chip + .chip {
-        margin-top: 8px;
-    }
-    .chip-image {}
-    
-    #progressContainer {
-        position: relative;
-    }
-    
-    #progress {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 100%;
-        width: 100%;
-        z-index: -1;
-        --paper-progress-active-color: var(--form-color);
-        --paper-progress-container-color: var(--background-color);
-    }
-    
-    #progressContainer #contentContainer {
-        box-sizing: border-box;
-        padding: 5px 5px;
-        width: 460px;
-    }
-    
-    #progressContainer .content {
-        margin: 0;
-    }
-    
-    #progressContainer .percentage {}
-    </style>
+    <link rel="import" type="css" href="style.css">
     <template>
         <div id="vote" class="layout vertical">
             <div>
