@@ -4,7 +4,7 @@
     color: var(--font-color);
     outline: 1px solid gray;
     font-size: 13px;
-    background: #fff;    
+    background: #fff;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -42,12 +42,15 @@
 
 .chip-image {}
 
-.chip.selected {
+.chip.selected {}
 
-}
 #progressContainer {
     position: relative;
     background: var(--form-color);
+}
+
+#progressContainer.reveal .content {
+    padding: 0 2.8em 0 0;
 }
 
 #progressContainer paper-ripple {
@@ -66,7 +69,8 @@
     --paper-progress-active-color: var(--form-color);
     --paper-progress-container-color: var(--background-color);
 }
-#progressContainer #contentContainer {
+
+#contentContainer {
     position: relative;
     box-sizing: border-box;
     padding: 5px 5px;
@@ -74,7 +78,17 @@
     z-index: 3;
 }
 
-#progressContainer .content ,#progressContainer .percentage {
+#progressContainer .content {
     margin: 0;
     z-index: 3;
+    padding: 0 20px;
+    transition: padding 0.8s ease-out;
+}
+
+#progressContainer .percentage {
+    z-index: 3;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
 }
