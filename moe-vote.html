@@ -24,17 +24,18 @@
                     <!--                     <template is="dom-if" if="">
                         <iron-image class="chip-image" sizing="cover" src="{{item.src}}"> </iron-image>
                     </template> -->
-                    <div id="progressContainer">
+                    <div id="progressContainer" class$="[[_computeRevealClass(reveal)]]">
                         <div id="contentContainer" class="layout horizontal center-center">
                             <p class="content flex">{{item.content}}</p>
-                            <div class="percentage">
-                                <span>{{_targetVoteRatio(datas, item.value)}}</span><span>%</span>
-                            </div>
+                            <template is="dom-if" if="{{reveal}}">
+                                <paper-progress id="progress" value="{{_targetVoteRatio(datas, item.value)}}"></paper-progress>
+                                <div class="percentage">
+                                    <span>{{_targetVoteRatio(datas, item.value)}}</span><span>%</span>
+                                </div>
+                            </template>
                         </div>
-                        <paper-progress id="progress" value="{{_targetVoteRatio(datas, item.value)}}"></paper-progress>
-
-                        <paper-ripple fit></paper-ripple> 
-                    </div>  
+                        <paper-ripple fit></paper-ripple>
+                    </div>
                 </paper-item>
             </template>
             <paper-toolbar class="layout horizontal end-justified">
@@ -59,9 +60,11 @@ Polymer({
             type: String,
             value: '名前なしの投票'
         },
-        toggleReveal: {
+        reveal: {
             type: Boolean,
+            value: false,
             reflectToAttribute: true,
+            notify: true,
             observor: '_revealStateChanged'
         },
         multi: {
@@ -85,7 +88,13 @@ Polymer({
         return Math.round(ratio * 10) / 10;
     },
     _toggleSelection: function(e) {
+        this.reveal = !this.reveal;
         console.log(e.currentTarget);
+    },
+    _computeRevealClass: function(reveal) {
+        if (reveal) {
+            return 'reveal';
+        }
     },
     ready: function() {
         // `ready` is called after all elements have been configured, but
@@ -94,28 +103,6 @@ Polymer({
         //
         // This is the point where you should make modifications to the DOM (when
         // necessary), or kick off any processes the element wants to perform.
-        this.datas = [{
-            value: 10,
-            content: '二戰後 共產坐大 毒害世界 會變智障 很正常!萬惡共產!',
-            imgSrc: 'http://lorempixel.com/150/100/cats/'
-        }, {
-            value: 20,
-            content: '二戰結束之後倒底發生了什麼事原本很有女人味的'
-        }, {
-            value: 3,
-            content: 'XDDDD 搞不懂人類啊 45年代以後風格越來越詭異',
-            imgSrc: 'http://lorempixel.com/250/100/cats/'
-        }, {
-            value: 0,
-            content: '詭異的時代,女人不想被當成女人看,卻到處喊著自己是女人',
-            imgSrc: 'http://lorempixel.com/150/250/cats/'
-        }, {
-            value: 11,
-            content: '尤其是1945年 那飛吻的動作簡直太讚了'
-        }, {
-            value: 5,
-            content: '回去工作!人類!喔對了 1985真的是婊子裝扮'
-        }];
     },
 
     attached: function() {

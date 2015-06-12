@@ -16,5 +16,32 @@
 <body>
     <moe-vote></moe-vote>
 </body>
-
+<script>
+		var vote = document.querySelector('moe-vote');
+	        vote.datas = [{
+            value: 10,
+            content: '二戰後 共產坐大 毒害世界 會變智障 很正常!萬惡共產!',
+            imgSrc: 'http://lorempixel.com/150/100/cats/'
+        }, {
+            value: 20,
+            content: '二戰結束之後倒底發生了什麼事原本很有女人味的'
+        }, {
+            value: 3,
+            content: 'XDDDD 搞不懂人類啊 45年代以後風格越來越詭異',
+            imgSrc: 'http://lorempixel.com/250/100/cats/'
+        }, {
+            value: 0,
+            content: '詭異的時代,女人不想被當成女人看,卻到處喊著自己是女人',
+            imgSrc: 'http://lorempixel.com/150/250/cats/'
+        }, {
+            value: 11,
+            content: '尤其是1945年 那飛吻的動作簡直太讚了'
+        }, {
+            value: 5,
+            content: '回去工作!人類!喔對了 1985真的是婊子裝扮'
+        }];
+        for (var i = vote.datas.length; i--; i > 0) {
+            vote.datas[i].value = Math.floor(Math.random() * 100) * 1;
+        }
+</script>
 </html>

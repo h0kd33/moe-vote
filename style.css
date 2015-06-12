@@ -42,8 +42,12 @@
 
 .chip-image {}
 
+.chip.selected {
+
+}
 #progressContainer {
     position: relative;
+    background: var(--form-color);
 }
 
 #progressContainer paper-ripple {
@@ -62,17 +66,15 @@
     --paper-progress-active-color: var(--form-color);
     --paper-progress-container-color: var(--background-color);
 }
-
 #progressContainer #contentContainer {
     position: relative;
     box-sizing: border-box;
     padding: 5px 5px;
     width: 290px;
-    z-index: 2;
+    z-index: 3;
 }
 
-#progressContainer .content {
+#progressContainer .content ,#progressContainer .percentage {
     margin: 0;
+    z-index: 3;
 }
-
-#progressContainer .percentage {}
