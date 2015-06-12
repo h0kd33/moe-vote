@@ -3,6 +3,7 @@
 <link rel="import" href="../bower_components/iron-image/iron-image.html">
 <link rel="import" href="../bower_components/paper-progress/paper-progress.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-ripple/paper-ripple.html">
 <link rel="import" href="../moe-style/moe-style.html">
 <dom-module id="moe-vote">
     <link rel="import" type="css" href="style.css">
@@ -11,13 +12,16 @@
             <div>
                 <iron-image id="heroImage" sizing="cover" src="http://lorempixel.com/460/460/cats/"></iron-image>
             </div>
-            <paper-toolbar id="voteToolbar" class="layout horizontal ">
+            <paper-toolbar id="voteToolbar" class="layout vertical ">
                 <p id="voteTitle">{{voteTitle}}</p>
                 <!-- <paper-icon-button icon="av:skip-previous"> </paper-icon-button> -->
+                <p>才玩幾個小時我就放棄看劇情了
+                    <br> 感覺對這個劇情認真就是對自己的汙辱
+                </p>
             </paper-toolbar>
             <template is="dom-repeat" items="{{datas}}" id="voteList">
                 <paper-item class="chip" on-click="_toggleSelection">
-<!--                     <template is="dom-if" if="">
+                    <!--                     <template is="dom-if" if="">
                         <iron-image class="chip-image" sizing="cover" src="{{item.src}}"> </iron-image>
                     </template> -->
                     <div id="progressContainer">
@@ -28,7 +32,9 @@
                             </div>
                         </div>
                         <paper-progress id="progress" value="{{_targetVoteRatio(datas, item.value)}}"></paper-progress>
-                    </div>
+
+                        <paper-ripple fit></paper-ripple> 
+                    </div>  
                 </paper-item>
             </template>
             <paper-toolbar class="layout horizontal end-justified">

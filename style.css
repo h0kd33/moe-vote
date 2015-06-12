@@ -3,6 +3,14 @@
     box-sizing: border-box;
     color: var(--font-color);
     outline: 1px solid gray;
+    font-size: 13px;
+    background: #fff;    
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
 }
 
 :host([reveal]) {}
@@ -14,16 +22,17 @@
 
 #vote {}
 
-#voteToolbar {
-    font-weight: bold;
-}
+#voteToolbar {}
 
-#voteTitle {}
+#voteTitle {
+    font-weight: bold;
+    font-size: 16px;
+}
 
 #voteList {}
 
 .chip {
-    font-size: 13px;
+    position: relative;
     cursor: pointer;
 }
 
@@ -37,6 +46,11 @@
     position: relative;
 }
 
+#progressContainer paper-ripple {
+    color: gray;
+    z-index: 3;
+}
+
 #progress {
     position: absolute;
     top: 0;
@@ -44,15 +58,17 @@
     right: 0;
     height: 100%;
     width: 100%;
-    z-index: -1;
+    z-index: 1;
     --paper-progress-active-color: var(--form-color);
     --paper-progress-container-color: var(--background-color);
 }
 
 #progressContainer #contentContainer {
+    position: relative;
     box-sizing: border-box;
     padding: 5px 5px;
-    width: 460px;
+    width: 290px;
+    z-index: 2;
 }
 
 #progressContainer .content {
